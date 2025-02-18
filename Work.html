@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Technologies Assessment 1</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+    
+    body {
+  background-color:floralwhite;
+}
+        /* Video and audio embedded */
+        .media video, .media audio {
+            width: 80%;
+            max-width: 600px;
+            margin: 20px auto;
+            display: block;
+        }
+
+        .btn:hover {
+            background: #33e0ff;
+        }
+
+         /* Hamburger Menu */
+         .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .hamburger div {
+            width: 30px;
+            height: 4px;
+            background: #333;
+            margin: 5px;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 250px;
+            height: 100%;
+            background: white;
+            box-shadow: -2px 0 5px rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+   
+        /* (feedback - OpenAI.2025) */
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .mobile-menu ul li {
+            margin: 15px 0;
+        }
+
+        .mobile-menu ul li a {
+            text-decoration: none;
+            font-size: 18px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* Close Button for burger menu (feedback - OpenAI.2025) */
+        .close-menu {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+            align-self: flex-end;
+        }
+
+        /* Overlay when menu is open */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(194, 193, 193, 0.255);
+            z-index: 5;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        /* Responsive Design when narrow screen*/
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .mobile-menu {
+                display: flex;
+            }
+        }
+
+        .container1 {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            }
+        
+
+        .box h3 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .search-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-box {
+            background: white;
+            color: #1f68b7;
+            padding: 10px;
+            width: 500px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-box i {
+            margin-right: 10px;
+            font-size: 18px;
+            color: #1f68b7;
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            font-size: 16px;
+            flex: 1;
+        }
+    </style>
+     
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">
+        <img src="GOSH-logo.webp" alt="Logo">
+    </div>
+    <nav class="nav-links">
+        <ul>
+            <li><a href="#">Home <i class="fas fa-chevron-down"></i></a></li>
+            <li><a href="#">About <i class="fas fa-chevron-down"></i></a></li>
+            <li><a href="#">The Constellation <i class="fas fa-chevron-down"></i></a></li>
+            <li><a href="#">What we do <i class="fas fa-chevron-down"></i></a></li>
+            <li><a href="#">The Children's cancer centre</a></li>
+        </ul>
+    </nav>
+    <div class="nav-right">
+        <button class="btn get-started">Get started</button>
+        <a href="#" class="login">Log in</a>
+        <i class="fas fa-search search-icon"></i>
+    </div>
+
+    <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</header>
+
+<!-- Mobile Navigation Menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <button class="close-menu" onclick="toggleMenu()">X</button>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">The Constellation</a></li>
+        <li><a href="#">What we do</a></li>
+        <li><a href="#">The Children's cancer centre</a></li>
+    </ul>
+    <div class="nav-right">
+        <button class="btn get-started">Get started</button>
+        <a href="#" class="login">Log in</a>
+        <i class="fas fa-search search-icon"></i>
+    </div>
+</div>
+
+<!-- Background Overlay -->
+<div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+<script>
+    function toggleMenu() {
+        const mobileMenu = document.getElementById("mobileMenu");
+        const overlay = document.getElementById("overlay");
+
+        mobileMenu.classList.toggle("active");
+        overlay.classList.toggle("active");
+    }
+</script>
+<!--Open AI. 2025 for interactive elements and feedback-->
+
+
+    
+    <section id="home">
+        <div class="mainback">
+            <h2>The Great Ormond Street Hospital Children's charity known as GOSH Charity</h2>
+            <p1>Join us in making a difference around the world.</p1>
+            <a href="#donate" class="btn">Donate Now</a>
+        </div>
+    </section>
+
+    <section>
+        <section id="media1" class="media1">
+            <h2>Watch Our Story</h2> 
+            <iframe width="650" height="415" src="https://www.youtube-nocookie.com/embed/fveh-67snXg?si=qp-71Pna33VUcS69" title="YouTube video player" frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen></iframe>
+    <br>
+</section>
+
+
+
+    <!--<section id="media1" class="media1">
+        <h2>Watch Our Story</h2>
+        <video controls>
+            <source src="media/story.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <h2>Listen to Our Supporters</h2>
+        <audio controls>
+            <source src="media/audio.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+    </section>-->
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>The Hospital Priorities Steering Group is made up of Charity Trustees.</p>
+        </section>
+
+        <section id="causes">
+            <section class="news-update">
+                <div class="container1">
+                    <div class="image-section">
+                        <img src="gosh-1200.jpg" alt="Siuu">
+                        <div class="shape"></div>
+                    </div>
+                    <div class="content-section">
+                        <h3>Children's Cancer Centre</h3>
+                        <p>
+                        Learn more about our fantastic plans for this new facility, which includes cancer, theatres, imaging and critical care services
+                        </p>
+                        <a href="#" class="button">Read More</a>
+                        <a href="#" class="find-1">Find Out</a>
+                    </div>
+                </div>
+
+            <div class="news-container">
+                <div class="news-item">
+                    <p class="date">February 12, 2025</p>
+                    <p class="news-title">Great Ormond Street Hospital Learning Academy</p>
+                    <p class="news-content">
+                        The GOSH Learning Academy represents our educational mission to help healthcare practitioners around the world.
+                    </p>
+                </div>
+                <div class="news-item">
+                    <p class="date">February 16, 2025</p>
+                    <p class="news-title">Building works updates and what to expect</p>
+                    <p class="news-content">
+                        As work to develop our new Children's Cancer centre get underway, you will see some changes around the hospital.
+                    </p>
+                </div>
+            </div>
+            </section>
+        
+    <section>
+    <ol>
+        <li>Make a donation</li>
+        <li>Join our fundraising events</li>
+        <li>Become a volunteer</li>
+        <br>
+        <ol><a href="mailto: supporter.care@gosh.org"><b>Contact Us for general enquiry</b></a></ol>
+</section>
+
+<section>
+    <h1>Find a service</h1>
+    <p>Enter your town, postcode, or area.</p>
+
+    <div class="search-container">
+        <div class="search-box">
+            <i class="fas fa-map-marker-alt"></i>
+            <input type="text" placeholder="Location or postcode">
+        </div>
+    </div>
+</section>
+
+
+<section class="card-container">
+    <div class="card">
+        <img src="IMG_7080.webp" alt="Toys and Games">
+        <div class="content">
+            <h3>Decide on the amount you want to donate.</h3>
+            <p>We are committed to carrying out pioneering research to find treatments and cures for some of the most complex illnesses, 
+                for the benefit of children here in the UK and worldwide.</p>
+            <a href="#" class="donate-btn">DONATE TOYS AND GAMES</a>
+        </div>
+    </div>
+    
+    <div class="card">
+        <img src="gosh-orb-uk-20mp-20190701-29-1.jpg" alt="Volunteer">
+        <div class="content">
+            <h3>Create your star in memory of someone.</h3>
+            <p>We are committed to carrying out pioneering research to find treatments and cures for some of the most complex illnesses, 
+                for the benefit of children here in the UK and worldwide.</p>                                                                                                                                                                                                                                                                                                                       
+            <a href="#" class="btn">Volunteer with us</a>
+        </div>
+    </div>
+    
+    <div class="card">
+        <img src="2bcb25c5-f5cdef05-d13bc825-c42090.7fbe23fe.fill-1200x540.jpg" alt="Constellation">
+        <div class="content">
+            <h3>Share the constellation with family and friends.</h3>
+            <p>Our long-term commitment to instigating, and delivering cutting-edge research there are a wide variety of research projects under way 
+                at Great Ormond Street Hospital (GOSH).</p>
+            <a href="#" class="btn green">ADD YOUR NAME NOW</a>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="box">
+            <h4>In the UK</h4>
+            <p>See how we support and provide health and social care services in the UK.</p>
+        </div>
+        
+        <div class="box">
+            <h4>Visitor Guideline</h4>
+            <p>At Great Ormond Street Hospital (GOSH), we know that visits from family and friends are hugely important to the children and young people we care for.
+                
+                The need to protect people from COVID-19 disrupted these visits for a long time. Since July 2022 we have been able to welcome back friends and family into the hospital, as long as some simple precautions to protect our vulnerable patients from infections are followed.</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <form action="#" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="feedback">Leave a feedback:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <p>How did you hear about us?</p>
+        <input type="radio" id="social" name="source" value="social">
+        <label for="social">Social Media</label>
+        <input type="radio" id="friend" name="source" value="friend">
+        <label for="friend">Friend</label>
+        <input type="radio" id="other" name="source" value="other">
+        <label for="other">Other</label>
+
+        <input type="submit" value="Submit">
+    </form>
+</section>
+    
+<footer class="footer">
+    <div class="footer-container">
+        <div class="social-media">
+            <p>Follow us</p>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+        </div>
+        <div class="footer-links">
+            <a href="#">Email updates</a>
+            <a href="#">About</a>
+            <a href="#">Contact us</a>
+            <a href="#">Media</a>
+            <a href="#">Policy & Practice</a>
+            <a href="#">Jobs</a>
+            <a href="#">FAQ</a>
+            
+        </div>
+        <div class="footer-info">
+            <p>&copy; 2025 Charity Organization. All rights reserved.</p>
+            <p>Great Ormond Street Hospital Children's Charity. A company limited by guarantee (company number ‍09338724) and a registered charity</p>
+            <p>(charity number 1160024). Registered office: 40 Bernard Street, London WC1N 1LE.</p>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Accessibility</a>
+            <a href="#">Privacy & Cookies</a>
+            <a href="#">Manage Cookies</a>
+        </div>
+        <div class="footer-logo">
+            <img src="images.png" alt="Footer Logo">
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
